@@ -1,8 +1,9 @@
 AV.init({
-  appId: import.meta.env.VITE_APP_ID,
-  appKey: import.meta.env.VITE_APP_KEY,
-  serverURL: import.meta.env.VITE_SERVER_URL,
+  appId: process.env.REACT_APP_SERVICE_ID,
+  appKey: process.env.REACT_APP_APP_KEY,
+  serverURL: process.env.REACT_APP_SERVER_URL,
 });
+
 
 
 
