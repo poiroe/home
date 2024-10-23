@@ -1,8 +1,9 @@
 AV.init({
-  appId: process.env.REACT_APP_APP_ID,
-  appKey: process.env.REACT_APP_APP_KEY,
-  serverURL: process.env.REACT_APP_SERVER_URL,
+  appId: import.meta.env.VITE_APP_ID,
+  appKey: import.meta.env.VITE_APP_KEY,
+  serverURL: import.meta.env.VITE_SERVER_URL,
 });
+
 
 
 const colors = ["#c362c3", "#7070cf", "#57bdbd", "#70c370", "#c5c55e", "#c7a15b", "#b36868", "#d99edd", "#6388d3", "#468dad", "#aa6dc9", "#bb775e", "#a18299", "#07969a", "#d36a68", "#a2ad47", "#a467c9", "#c76259", "#cda562", "#8faddf"];
