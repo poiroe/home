@@ -5,9 +5,24 @@
     "name": "网盘",
     "link": "https://alist.omou.us.kg/"
   },
+   {
+    "icon": "Book",
+    "name": "解忧杂货店",
+    "link": "/kabe/"
+  },
   {
     "icon": "Fire",
     "name": "今日热榜",
     "link": "https://hot.imsyy.top/"
+  },
+    {
+    "icon": "LaptopCode",
+    "name": "Mikutap",
+    "link": "/Mikutap/"
+  },
+    {
+    "icon": " ",
+    "name": "待添加",
+    "link": " "
   }
 ]
