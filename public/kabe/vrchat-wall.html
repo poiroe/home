@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRChat Message Wall</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #2c3e50;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .zhuti {
+            position: relative;
+            min-height: 80vh;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .son {
+            position: absolute;
+            width: 250px;
+            min-height: 150px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: move;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .son:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #biaoti {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        #neirong {
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            word-wrap: break-word;
+            color: #34495e;
+        }
+
+        #shijian {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            text-align: right;
+        }
+
+        .message-form {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        #tj {
+            background: #3498db;
+            color: white;
+        }
+
+        #tj:hover {
+            background: #2980b9;
+        }
+
+        #qx {
+            background: #e74c3c;
+            color: white;
+        }
+
+        #qx:hover {
+            background: #c0392b;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #messageBox {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 3000;
+        }
+
+        @media (max-width: 768px) {
+            .message-form {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                border-radius: 15px 15px 0 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VRChat Message Wall</h1>
+            <p>Share your thoughts and connect with others</p>
+        </div>
+        
+        <div class="zhuti">
+            <!-- Messages will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <div class="message-form">
+        <div class="form-group">
+            <label for="mynamein">From:</label>
+            <input type="text" id="mynamein" placeholder="Your name">
+        </div>
+        <div class="form-group">
+            <label for="younamein">To:</label>
+            <input type="text" id="younamein" placeholder="Recipient's name">
+        </div>
+        <div class="form-group">
+            <label for="zhengwenin">Message:</label>
+            <textarea id="zhengwenin" placeholder="Write your message here..." onkeyup="limitCharacters(this, 200)"></textarea>
+        </div>
+        <div class="button-group">
+            <button id="tj">Send</button>
+            <button id="qx">Cancel</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+
+    <div id="messageBox">
+        <p id="messageContent"></p>
+    </div>
+
+    <div id="maskbiao"></div>
+    <div id="bbk"></div>
+</body>
+</html>

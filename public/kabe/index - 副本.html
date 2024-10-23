@@ -20,9 +20,7 @@
 <div class="modal" id="announcementModal" style="display: none;">
     <div class="modal-content">
         <p>这是一个VRChat墙！</p>
-		<p> VRChat wall </p>
-		<p> 提供树洞和留言 </p>
-		<p> Providing a shoulder to cry on and message functionality </p>
+		<p> </p>
 		<p><a href="https://vrchat.us.kg/" target="_blank" style="color: #00000;">@omou</a></p>
         <button id="closeAnnouncementModal">关闭</button>
     </div>
@@ -73,7 +71,7 @@
  <div class="mask" id="loading">
 <div class="jiazai">
 <div class="loader"></div>
-<p>Loading...<br/><br/>这是一个VRChat墙！<br/>VRChat wall.<br/>提供树洞和留言<br/>Providing a shoulder to cry on and message functionality.</p>
+<p>Loading...</p>
     </div>
   </div>
 <div class='real_mask' style="
@@ -96,7 +94,29 @@
 		<div class="full-bg-img" >
 
 			
+				<style>
+    /* 添加模糊效果 */
+    #banner {
+        position: relative;
+        overflow: hidden; /* 确保模糊效果不会超出容器 */
+    }
 
+    #banner img {
+        width: 100%;
+        height: auto;
+        filter: blur(8px); /* 设置模糊效果，可以调整数值 */
+        position: absolute; /* 绝对定位以覆盖整个背景 */
+        top: 0;
+        left: 0;
+        z-index: -1; /* 确保背景图在其他内容后面 */
+    }
+
+    /* 确保内容在背景上可见 */
+    #banner > * {
+        position: relative;
+        z-index: 1; /* 确保内容在背景之上 */
+    }
+</style>
 
 <script>
     var ua = navigator.userAgent;
@@ -119,6 +139,40 @@
         }
     }
 
+    <!-- // 获取随机背景图 -->
+    <!-- function getRandomImage() { -->
+        <!-- var imageIndex = Math.floor(Math.random() * 10) + 1; // 随机选择1到10之间的数字 -->
+        <!-- return './BG/background' + imageIndex + '.webp'; // 返回对应图片的路径 -->
+    <!-- } -->
+
+    <!-- // 随机选择一张图片作为背景图 -->
+    <!-- var pre_show_image_url = getRandomImage(); -->
+
+    <!-- // 设置背景图片 -->
+    <!-- var banner_obj = document.getElementById("banner"); -->
+    <!-- banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"; -->
+
+    <!-- var vvd_banner_obj = document.getElementById("vvd_banner_img"); -->
+
+    <!-- // 适配移动设备 -->
+    <!-- if (isMobile) { -->
+        <!-- // 移动端显示背景图而不显示视频 -->
+        <!-- var vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"; -->
+        <!-- vvd_banner_obj.innerHTML = vvd_banner_content; -->
+    <!-- } else { -->
+        <!-- // 如果不是移动端，则显示视频 -->
+        <!-- var vvd_banner_content = "<video id='banner_img_item' autoplay muted loop><source src='' type='video/mp4'></video>"; -->
+        <!-- vvd_banner_obj.innerHTML = vvd_banner_content; -->
+        <!-- set_video_attr('banner_img_item'); -->
+    <!-- } -->
+
+    <!-- // 调整背景图属性 -->
+    <!-- if (!isMobile) { -->
+        <!-- // 如果不是移动端，则不显示视频，只显示随机的背景图 -->
+        <!-- window.onresize = function () { -->
+            <!-- set_video_attr('banner_img_item'); -->
+        <!-- }; -->
+    <!-- } -->
 </script>
 
 
@@ -149,7 +203,7 @@
 <button>
   <svg class="empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0H24V24H0z"></path><path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2zm-3.566 15.604c.881-.556 1.676-1.109 2.42-1.701C18.335 14.533 20 11.943 20 9c0-2.36-1.537-4-3.5-4-1.076 0-2.24.57-3.086 1.414L12 7.828l-1.414-1.414C9.74 5.57 8.576 5 7.5 5 5.56 5 4 6.656 4 9c0 2.944 1.666 5.533 4.645 7.903.745.592 1.54 1.145 2.421 1.7.299.189.595.37.934.572.339-.202.635-.383.934-.571z"></path></svg>
   <svg class="filled" height="32" width="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0H24V24H0z" fill="none"></path><path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path></svg>
-  留言
+  发表一个
 </button>
 </div>
 
