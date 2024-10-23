@@ -1,8 +1,9 @@
 AV.init({
-  appId: VITE_APP_ID,
-  appKey: VITE_APP_KEY,
-  serverURL: VITE_SERVER_URL,
+  appId: import.meta.env.VITE_APP_ID,
+  appKey: import.meta.env.VITE_APP_KEY,
+  serverURL: import.meta.env.VITE_SERVER_URL,
 });
+
 
 
 
