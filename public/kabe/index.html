@@ -11,9 +11,61 @@
 <audio id="background-music" autoplay loop>
   <source src="./bgm.mp3" type="audio/mpeg">
 </audio>
-  <title>表白墙 - Wenbin&#39;s blog</title>
+  <title>VRChat墙</title>
 </head>
 <body>
+
+
+
+<div class="modal" id="announcementModal" style="display: none;">
+    <div class="modal-content">
+        <p>这是一个VRChat墙！</p>
+        <button id="closeAnnouncementModal">关闭</button>
+    </div>
+</div>
+
+<style>
+/* 添加模态框样式 */
+.modal {
+    display: none; /* 默认不显示 */
+    position: fixed; /* 固定定位 */
+    left: 50%; /* 向左移动50% */
+    top: 50%; /* 向上移动50% */
+    transform: translate(-50%, -50%); /* 通过变换将中心点移到50% */
+    background-color: white; /* 背景颜色 */
+    padding: 20px; /* 内边距 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 阴影效果 */
+    z-index: 1000; /* 确保在最上层 */
+}
+
+/* 遮罩层样式 */
+.real_mask {
+    display: none; /* 默认不显示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    z-index: 999; /* 在弹窗下方 */
+}
+</style>
+
+
+<script>
+    window.onload = function() {
+        // 显示公告弹窗
+        document.getElementById('announcementModal').style.display = 'flex';
+
+        // 关闭弹窗的功能
+        document.getElementById('closeAnnouncementModal').onclick = function() {
+            document.getElementById('announcementModal').style.display = 'none';
+        };
+    };
+</script>
+
+
  <div class="mask" id="loading">
 <div class="jiazai">
 <div class="loader"></div>
