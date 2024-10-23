@@ -373,29 +373,29 @@ footer a {
 }
 .Switch::before {
 	content:"";
-	background-color:#df8b8b;
+	background-color:#f6a8e0;
 	position:absolute;
 	height:80%;
 	width:5px;
 	border-radius:5px
 }
 .Switch::after {
-	background-color:#eb976d;
+	background-color:#eb6dd2;
 	border:1px solid #1ee3d8;
 	content:"";
 	position:absolute;
 	height:5px;
 	width:25px;
-	top:15px;
+	top:40px;
 	transition-duration:.3s;
 	box-shadow:5px 2px 5px rgba(8,8,8,.288);
 	border-radius:5px
 }
-#checkbox:checked+.Switch::after {
-	transform:translateY(25px);
-	transition-duration:.3s;
-	border:1px solid #a8a8af;
-	background-color:#e3cedb
+#checkbox:checked + .Switch::after {
+  transform: translateY(-28px); /* œÚ”““∆∂Ø 25px */
+  transition-duration: 0.3s;
+  border: 1px solid #a8a8af;
+  background-color: #e3cedb;
 }
 
 

@@ -20,3 +20,17 @@ navigator.serviceWorker.addEventListener("controllerchange", () => {
   console.log("站点已更新，刷新后生效");
   ElMessage("站点已更新，刷新后生效");
 });
+
+// 动态插入外部脚本 (360 统计)
+(function (b, a, e, h, f, c, g, s) {
+  b[h] = b[h] || function () {
+    (b[h].c = b[h].c || []).push(arguments);
+  };
+  b[h].s = !!c;
+  g = a.getElementsByTagName(e)[0];
+  s = a.createElement(e);
+  s.src = "//s.union.360.cn/" + f + ".js";
+  s.defer = true;
+  s.async = true;
+  g.parentNode.insertBefore(s, g);
+})(window, document, "script", "_qha", 567953, false);
