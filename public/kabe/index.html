@@ -157,14 +157,14 @@
 
 <div class="mask" id="maskbiao">
        <div class="bbkung" id="bbk">
-<textarea class="name" id="mynamein" placeholder="请输入你的昵称" oninput="limitCharacters(this, 5)"></textarea><br>
-  <textarea class="name" id="younamein" placeholder="请输入她/他的昵称" oninput="limitCharacters(this, 5)"></textarea><br>
-  <textarea class="zwk" id="zhengwenin" placeholder="在这里输入你想说的话..." oninput="limitCharacters(this, 150)"></textarea>
+<textarea class="name" id="mynamein" placeholder="名字/Your name" oninput="limitCharacters(this, 5)"></textarea><br>
+  <textarea class="name" id="younamein" placeholder="对方的名字/Recipient's name" oninput="limitCharacters(this, 5)"></textarea><br>
+  <textarea class="zwk" id="zhengwenin" placeholder="在此写下留言../Write your message here..." oninput="limitCharacters(this, 150)"></textarea>
   <div class="button-container">
 
   <div class="link" id="qx">
 <button class="button">
-取消
+取消/Cancel
 <div class="hoverEffect">
 <div>
 </div>
@@ -173,7 +173,7 @@
 
   <div class="link" id="tj">
 <button class="button">
-提交
+寄出/Send
 <div class="hoverEffect">
 <div>
 </div>
@@ -205,11 +205,22 @@
 <script>
 window.addEventListener('load', function() {
   var colaElement = document.getElementById('loading');
+
+  // 在页面加载完成后等待 3 秒，然后隐藏 loading 元素
+  setTimeout(function() {
+    if (colaElement) {
+      colaElement.style.display = 'none';
+    }
+  }, 5000); // 5000 毫秒（3 秒）
+
+  // 如果在 3 秒内页面加载完成，也可以立即隐藏 loading 元素
   if (colaElement) {
     colaElement.style.display = 'none';
   }
 });
 </script>
+
+
 <script>
 var audio = document.getElementById("background-music");
 var checkbox = document.getElementById("checkbox");
