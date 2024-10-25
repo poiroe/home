@@ -2,8 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.2/dist/av-min.js"></script>
+<script src="av-min.js"></script>
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="icon" href="favicon.png">
@@ -17,20 +19,20 @@
 
 
 
-<div class="modal" id="announcementModal" style="display: none;">
-    <div class="modal-content">
+<div class="announcementModal" id="announcementModal">
+    <div class="modal-content" style="display: none;">
         <p>这是一个VRChat墙！</p>
-		<p> VRChat wall </p>
-		<p> 提供树洞和留言 </p>
-		<p> Providing a shoulder to cry on and message functionality </p>
-		<p><a href="https://vrchat.us.kg/" target="_blank" style="color: #00000;">@omou</a></p>
+        <p>VRChat wall</p>
+        <p>提供树洞和留言</p>
+        <p>Providing a shoulder to cry on and message functionality</p>
+        <p><a href="https://vrchat.us.kg/" target="_blank" style="color: #00000;">@omou</a></p>
         <button id="closeAnnouncementModal">关闭</button>
     </div>
 </div>
 
 <style>
 /* 添加模态框样式 */
-.modal {
+.modal-content {
     display: none; /* 默认不显示 */
     position: fixed; /* 固定定位 */
     left: 50%; /* 向左移动50% */
@@ -41,6 +43,7 @@
     border-radius: 8px; /* 圆角 */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 阴影效果 */
     z-index: 1000; /* 确保在最上层 */
+	text-align: center;
 }
 
 /* 遮罩层样式 */
@@ -202,23 +205,40 @@
     </label>
 
     <script type="module" src="app.js"></script>
+
+<div class="modal" id="announcementModal" style="display: none;"> 
+    <div class="modal-content">
+        <p>这是一个VRChat墙！</p>
+        <p>VRChat wall</p>
+        <p>提供树洞和留言</p>
+        <p>Providing a shoulder to cry on and message functionality</p>
+        <p><a href="https://vrchat.us.kg/" target="_blank" style="color: #00000;">@omou</a></p>
+        <button id="closeAnnouncementModal">关闭</button>
+    </div>
+</div>
+
 <script>
 window.addEventListener('load', function() {
-  var colaElement = document.getElementById('loading');
+    var colaElement = document.getElementById('loading');
 
-  // 在页面加载完成后等待 3 秒，然后隐藏 loading 元素
-  setTimeout(function() {
-    if (colaElement) {
-      colaElement.style.display = 'none';
-    }
-  }, 5000); // 5000 毫秒（3 秒）
+    setTimeout(() => {
+        colaElement.style.display = 'none'; // 隐藏 loading 元素
 
-  // 如果在 3 秒内页面加载完成，也可以立即隐藏 loading 元素
-  if (colaElement) {
-    colaElement.style.display = 'none';
-  }
+        // 延迟1秒后显示弹窗内容
+        setTimeout(() => {
+            document.getElementById('announcementModal').querySelector('.modal-content').style.display = 'block'; // 显示弹窗内容
+        }, 500); // 延迟1秒（1000毫秒）
+
+    }, 1000);
+
+
+    // 创建并添加脚本元素 
+    var script = document.createElement('script');
+    script.src = '../assets/js/tong.js'; // 指定脚本路径
+    document.body.appendChild(script); // 将脚本添加到页面中
 });
 </script>
+
 
 
 <script>
@@ -231,21 +251,6 @@ checkbox.addEventListener("click", function() {
     audio.pause();
   }
 });
-</script>
-
-<script>
-  (function (b, a, e, h, f, c, g, s) {
-    b[h] = b[h] || function () {
-      (b[h].c = b[h].c || []).push(arguments);
-    };
-    b[h].s = !!c;
-    g = a.getElementsByTagName(e)[0];
-    s = a.createElement(e);
-    s.src = "//s.union.360.cn/" + f + ".js";
-    s.defer = true;
-    s.async = true;
-    g.parentNode.insertBefore(s, g);
-  })(window, document, "script", "_qha", 567953, false);
 </script>
 
 

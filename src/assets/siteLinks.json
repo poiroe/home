@@ -16,13 +16,13 @@
     "link": "https://hot.imsyy.top/"
   },
     {
+    "icon": "Images",
+    "name": "照片墙",
+    "link": "https://omou.vrchat.us.kg/gallery/vrchat/"
+  },
+    {
     "icon": "LaptopCode",
     "name": "Mikutap",
     "link": "/mikutap/"
-  },
-    {
-    "icon": " ",
-    "name": "待添加",
-    "link": " "
   }
 ]
