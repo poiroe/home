@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" type="text/css" href="style.css">
+	 <script type="module" src="app.js"></script>
+    <title>适配移动端的拖动效果</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #card{
+            height: 1000px;
+        }
+        #son{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+<div id="card">
+    <div id="son"></div>
+</div>
+<script>
+    var flag = false;
+    var cur = {
+        x:0,
+        y:0
+    }
+    var nx,ny,dx,dy,x,y ;
+    function down(){
+        flag = true;
+        var touch ;
+        if(event.touches){
+            touch = event.touches[0];
+        }else {
+            touch = event;
+        }
+        cur.x = touch.clientX;
+        cur.y = touch.clientY;
+        dx = son.offsetLeft;
+        dy = son.offsetTop;
+    }
+    function move(){
+        if(flag){
+            var touch ;
+            if(event.touches){
+                touch = event.touches[0];
+            }else {
+                touch = event;
+            }
+            nx = touch.clientX - cur.x;
+            ny = touch.clientY - cur.y;
+            x = dx+nx;
+            y = dy+ny;
+            son.style.left = x+"px";
+            son.style.top = y +"px";
+            //阻止页面的滑动默认事件
+            document.addEventListener("touchmove",function(){
+                event.preventDefault();
+            },false);
+        }
+    }
+    //鼠标释放时候的函数
+    function end(){
+        flag = false;
+    }
+    var son = document.getElementById("son");
+    son.addEventListener("mousedown",function(){
+        down();
+    },false);
+    son.addEventListener("touchstart",function(){
+        down();
+    },false)
+    son.addEventListener("mousemove",function(){
+        move();
+    },false);
+    son.addEventListener("touchmove",function(){
+        move();
+    },false)
+    document.body.addEventListener("mouseup",function(){
+        end();
+    },false);
+    son.addEventListener("touchend",function(){
+        end();
+    },false);
+</script>
+</body>
+</html>

@@ -135,18 +135,18 @@ footer a {
 	position:absolute;
 	border-radius:5px;
 	font-family:LXGW Wenkai Screen;
-	user-select:none
+	
 }
 .son:hover {
 	box-shadow:1px 1px 5px rgba(0,0,0,.57);
 	-webkit-box-shadow:1px 1px 5px 0 rgba(0,0,0,.57);
 	-moz-box-shadow:1px 1px 5px 0 rgba(0,0,0,.57)
 }
-.zhuti {
+.card {
 	height:98vh;
 	width:100%;
 	margin:auto;
-	position:relative
+	position:relative;
 }
 .dingbu {
 	display:flex;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <script src="av-min.js"></script>
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -141,9 +141,10 @@
 
     </div>
 
-  <div class="zhuti">
+  <div class="card">
 
 </div>
+
 
 
 
@@ -217,6 +218,8 @@
     </div>
 </div>
 
+
+
 <script>
 window.addEventListener('load', function() {
     var colaElement = document.getElementById('loading');
@@ -224,20 +227,25 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         colaElement.style.display = 'none'; // 隐藏 loading 元素
 
-        // 延迟1秒后显示弹窗内容
+        // 延迟
         setTimeout(() => {
             document.getElementById('announcementModal').querySelector('.modal-content').style.display = 'block'; // 显示弹窗内容
-        }, 500); // 延迟1秒（1000毫秒）
+        }, 10); // 延迟
 
     }, 1000);
 
 
     // 创建并添加脚本元素 
     var script = document.createElement('script');
-    script.src = '../assets/js/tong.js'; // 指定脚本路径
+    script.src = '/assets/js/tong.js'; // 指定脚本路径
     document.body.appendChild(script); // 将脚本添加到页面中
+	
+	
 });
+
+ 
 </script>
+
 
 
 
