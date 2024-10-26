@@ -7,12 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link rel="icon" href="favicon.png">
+<link rel="stylesheet" type="text/css" href="./style.css">
+<link rel="icon" href="./favicon.ico">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <meta name="author" content="Wenbin">
-<audio id="background-music" autoplay loop>
+<audio id="background-music" autoplay loop oncanplay="this.volume=0.4">
   <source src="./bgm.mp3" type="audio/mpeg">
 </audio>
+
   <title>VRChat墙</title>
 </head>
 <body>
@@ -259,6 +261,7 @@ checkbox.addEventListener("click", function() {
     audio.pause();
   }
 });
+
 </script>
 
 
